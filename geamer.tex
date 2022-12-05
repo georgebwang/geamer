@@ -1,0 +1,271 @@
+% ============================================================
+% Simple Beamer Template - geamer
+%
+% Author: George Baihan Wang
+% Updated: Dec 5, 2022
+% ============================================================
+
+%% To use the template, simply type \input{geamer.tex} in the preamble within your Beamer tex files. Make sure the <geamer.tex> tmeplate file is in your current tex projects directory or your system 'texmf' folder.
+
+
+
+
+
+
+
+%% Colours
+
+\usepackage{xcolor}
+
+% Monash colour definitions
+% Source: https://www.monash.edu/__data/assets/pdf_file/0004/1656508/9.-Digital-Guidelines.pdf
+\definecolor{monashblue}       {RGB}{0,109,174}
+\definecolor{grey}         {RGB}{60,60,60}
+\definecolor{cornflower} {RGB}{121,162,206}
+\definecolor{pea}        {RGB}{201,212,178}
+\definecolor{beige}	     {RGB}{204,189,143}
+\definecolor{sky}	       {RGB}{221,231,238}
+\definecolor{orange}     {RGB}{245,128,37}
+
+% Colour palette from below source:
+% https://www.viget.com/articles/color-contrast/
+\definecolor{purple}{HTML}{5601A4}
+\definecolor{navy}{HTML}{0D3D56}
+\definecolor{ruby}{HTML}{9a2515}
+\definecolor{alice}{HTML}{107895}
+\definecolor{daisy}{HTML}{EBC944}
+\definecolor{coral}{HTML}{F26D21}
+\definecolor{kelly}{HTML}{829356}
+\definecolor{cranberry}{HTML}{E64173}
+\definecolor{jet}{HTML}{131516}
+\definecolor{asher}{HTML}{555F61}
+\definecolor{slate}{HTML}{314F4F}
+
+% From Scott's Causal Mixtape Sessions
+\definecolor{picton-blue}{HTML}{00b7ff}
+\definecolor{violet-red}{HTML}{ff3881}
+\definecolor{sun}{HTML}{ffaf18}
+\definecolor{lightpurple}{HTML}{871EFF}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%% Beamer layouts
+
+
+% Background
+\setbeamercolor{background canvas}{bg = white}
+
+% Change text margins
+\setbeamersize{text margin left = 15pt, text margin right = 15pt}
+
+% \alert   (for showing important phrases)
+\setbeamercolor{alerted text}{fg = sun!77!black}
+
+% Frame title
+\setbeamercolor{frametitle}{fg = monashblue}
+\setbeamercolor{framesubtitle}{fg = monashblue}
+\setbeamerfont{framesubtitle}{size = \small, shape = \itshape}
+
+% Blocks
+\setbeamertemplate{blocks}[rounded]
+\setbeamercolor{block title}{fg=monashblue!90!white,bg=sky}
+\setbeamercolor{block title example}{fg=green!50!black, bg=sky}
+\setbeamercolor{block title alerted}{fg=sun!77!black, bg=sky}
+\setbeamercolor{block body}{parent=normal text,bg=sky!50!white}
+\setbeamercolor{block body example}{parent=block body}
+\setbeamercolor{block body alerted}{parent=block body}
+
+% Title page
+\setbeamercolor*{title}{fg=monashblue}
+\setbeamercolor*{subtitle}{fg=monashblue}
+\setbeamerfont*{subtitle}{size = \large}
+\setbeamercolor*{author}{fg=black}
+\setbeamercolor*{date}{fg=gray!70!black}
+\setbeamerfont*{date}{size = \small}
+\setbeamercolor*{institute}{fg=black}
+\setbeamerfont*{institute}{size = \small}
+
+\setbeamertemplate{title page}{
+    \vbox{}
+    \vfill
+    \begingroup
+    \centering
+    \begin{minipage}{.77\textwidth}
+        \begin{beamercolorbox}[sep=3pt, center, rounded=true, shadow=false]{title}
+            \usebeamerfont{title}\inserttitle\par%
+            \ifx\insertsubtitle\@empty%
+            \else%
+                \vskip0.5em%
+                {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+            \fi%     
+        \end{beamercolorbox}%
+    \end{minipage}
+
+    \vskip1em\par
+    \begin{minipage}{\textwidth}
+        \begin{beamercolorbox}[sep=8pt,center]{author}
+            \usebeamerfont{author}\insertauthor
+        \end{beamercolorbox}
+    \end{minipage}
+
+    \begin{minipage}{\textwidth}
+        \begin{beamercolorbox}[sep=8pt,center]{institute}
+            \usebeamerfont{institute}\insertinstitute
+        \end{beamercolorbox}
+    \end{minipage}
+
+    \vskip0.5em
+
+    \begin{minipage}{\textwidth}
+        \begin{beamercolorbox}[sep=8pt,center]{date}
+            \usebeamerfont{date}\insertdate
+        \end{beamercolorbox}
+    \end{minipage}
+
+    \endgroup
+    \vfill
+}
+
+
+% Button 
+\setbeamercolor{button}{bg = monashblue}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+
+
+% Bullet point items
+
+% fix left-margins
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+
+% enumerate 
+\setbeamercolor{enumerate item}{fg=monashblue}
+\setbeamercolor{enumerate item}{fg = monashblue}
+\setbeamerfont{enumerate item}{size = \small}
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+
+% itemize
+\setbeamercolor{itemize item}{fg=monashblue}
+\setbeamerfont{itemize item}{size = \small}
+\setbeamertemplate{itemize item}[square]
+\setbeamercolor{itemize subitem}{fg = monashblue!80!white}
+\setbeamerfont{itemize subitem}{size = \small}
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamercolor{itemize subsubitem}{fg = monashblue!70!white}
+\setbeamerfont{itemize subsubitem}{size = \small}
+\setbeamertemplate{itemize subsubitem}{$\rightarrow$}
+
+
+% line spacing
+\usepackage{setspace}
+\setstretch{1.2}
+
+
+% fonts
+
+\usefonttheme{professionalfonts}
+% small adjustments to text kerning
+\usepackage{microtype}
+
+\usepackage[sfdefault, light]{roboto}
+%\usepackage[sfdefault, light]{noto}
+
+\usepackage[euler-digits]{eulervm}
+
+
+
+
+
+% Remove annoying over-full box warnings
+\vfuzz2pt
+\hfuzz2pt
+
+
+% TOC at the start of each Section
+\setbeamercolor{section number projected}{bg=black,fg=white}
+\setbeamercolor{subsection number projected}{bg=black,fg=white}
+
+\setbeamertemplate{section in toc}[square]
+\setbeamertemplate{subsection in toc}[square]
+\setbeamercolor{section in toc}{fg=black, bg=white}
+\setbeamercolor{subsection in toc}{fg=black}
+
+\AtBeginSection[]{
+    {\setbeamertemplate{footline}{}
+            \begin{frame}[t,noframenumbering]{Roadmap}
+                \tableofcontents[currentsection]
+            \end{frame}}
+}
+
+
+% Fix \input with tables
+% \input fails when \\ is at end of external .tex file
+\makeatletter
+\let\input\@@input
+\makeatother
+
+
+% Footer
+\setbeamercolor{footer}{fg=monashblue!80!black, bg=white}
+\setbeamercolor{footerfont}{fg=monashblue!80!black, bg=white}
+
+\defbeamertemplate*{footline}{infolines theme}
+{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=\paperwidth,ht=2.2ex,dp=0.7ex,leftskip=2ex,rightskip=2ex,sep=0pt]{footer}%
+            \hfill%
+            \usebeamercolor[fg]{footerfont}%
+            \usebeamerfont{footerfont}%
+            \insertshorttitle% 
+            \hspace*{3ex}%
+            \usebeamercolor[fg]{footerfont}%
+            \usebeamerfont{footerfont}%
+            \usebeamertemplate{footerfont}%
+            \insertframenumber\ / \inserttotalframenumber
+        \end{beamercolorbox}}%
+    \vskip0pt%
+}
+
+
+% Extra packages
+\usepackage[font=scriptsize,labelfont=bf]{caption}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa,doi=false,annotation=false]{biblatex}
+\usepackage{booktabs}
+\usepackage[normalem]{ulem} % strikethrough text
+\usepackage{appendixnumberbeamer} % reset page number from the start of appendix
+\usepackage{multicol}
+
+
+
+
+% citations no comma in between --> make it neater 
+\renewcommand{\nameyeardelim}{\space}
+\renewcommand{\postnotedelim}{\space}
+
+
+
+% script size bibliography
+\AtBeginBibliography{\scriptsize}

@@ -1,0 +1,88 @@
+\documentclass[aspectratio=149]{beamer}
+
+\input{geamer.tex} % one-time use, put geamer.tex in the same directory as your main tex file
+
+% for repetitive use:
+% \usepackage{import}
+% \import{path/to/your/stored/geamer/file/}{geamer.tex} 
+
+
+
+\title[footer text]{The Beauty of \LaTeX \ Beamer:}
+\subtitle{Evidence from Template Customisation}
+\author{Author 1 \inst{$^\dagger$} \and Author 2 \inst{$^\ddagger$}}
+\institute{\inst{$^\dagger$} Institution 1 \and \inst{$^\ddagger$} Institution 2}
+\date{\today}
+
+\begin{document}
+
+{\setbeamertemplate{footline}{}
+\begin{frame}[noframenumbering]
+  \titlepage
+\end{frame}
+}
+
+
+
+
+\section{Section 1}
+
+\subsection{Sub-section 1-1}
+
+\begin{frame}{Our First Slide}{Subtitle is here!}
+  Hello World!
+  \vspace{\baselineskip}
+
+
+  \begin{itemize}
+    \item Item 1
+    \item Item 2
+          \begin{itemize}
+            \item Sub-item 1
+                  \begin{itemize}
+                    \item Sub-sub-item 1
+                  \end{itemize}
+          \end{itemize}
+  \end{itemize}
+
+  \vspace{4ex}
+
+  \begin{enumerate}
+    \item Numbered Item 1
+    \item Numbered Item 2
+  \end{enumerate}
+\end{frame}
+
+\section{Section 2}
+\subsection{Sub-section 2-1}
+\begin{frame}{Our Second Slide}
+  \alert{Attention! ($\leftarrow$ this is the alert text colour)}
+  \vspace{4ex}
+
+  Some maths notation:
+  $$ p_t=\mathbb{E}_t(m_{t+1}x_{t+1}) $$
+
+  \hrulefill
+
+  Let's type up a regression: (clearly an endogenous setup!)
+  $$ Finance = \beta_0 + \beta_1Asset\ Pricing + \beta_2Corporate\
+    Finance + \varepsilon $$
+
+
+\end{frame}
+
+\begin{frame}{Some Blocks...}
+  \begin{block}{A Normal Block}
+    This is a block.
+  \end{block}
+
+  \begin{exampleblock}{An Example Block}
+    Another block.
+  \end{exampleblock}
+
+  \begin{alertblock}{An Alerted Block}
+    Another one...
+  \end{alertblock}
+\end{frame}
+
+\end{document}
