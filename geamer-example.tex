@@ -1,4 +1,4 @@
-\documentclass[aspectratio=149]{beamer}
+\documentclass[aspectratio=149, 10pt]{beamer}
 
 \input{geamer.tex} % one-time use, put geamer.tex in the same directory as your main tex file
 
@@ -17,7 +17,7 @@
 \begin{document}
 
 {\setbeamertemplate{footline}{}
-\begin{frame}[noframenumbering]
+\begin{frame}[plain, noframenumbering]
   \titlepage
 \end{frame}
 }
@@ -26,8 +26,6 @@
 
 
 \section{Section 1}
-
-\subsection{Sub-section 1-1}
 
 \begin{frame}{Our First Slide}{Subtitle is here!}
   Hello World!
@@ -54,7 +52,7 @@
 \end{frame}
 
 \section{Section 2}
-\subsection{Sub-section 2-1}
+
 \begin{frame}{Our Second Slide}
   \alert{Attention! ($\leftarrow$ this is the alert text colour)}
   \vspace{4ex}

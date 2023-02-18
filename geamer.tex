@@ -2,7 +2,7 @@
 % Simple Beamer Template - geamer
 %
 % Author: George Baihan Wang
-% Updated: Dec 5, 2022
+% Updated: Feb 19, 2023
 % ============================================================
 
 %% To use the template, simply type \input{geamer.tex} in the preamble within your Beamer tex files. Make sure the <geamer.tex> tmeplate file is in your current tex projects directory or your system 'texmf' folder.
@@ -201,22 +201,27 @@
 \hfuzz2pt
 
 
-% TOC at the start of each Section
-\setbeamercolor{section number projected}{bg=black,fg=white}
-\setbeamercolor{subsection number projected}{bg=black,fg=white}
+% Add smooth bars at the top of the frames
+\useoutertheme[subsection=false]{smoothbars}
 
-\setbeamertemplate{section in toc}[square]
-\setbeamertemplate{subsection in toc}[square]
-\setbeamercolor{section in toc}{fg=black, bg=white}
-\setbeamercolor{subsection in toc}{fg=black}
 
-\AtBeginSection[]{
-    {\setbeamertemplate{footline}{}
-            \begin{frame}[t,noframenumbering]{Roadmap}
-                \tableofcontents[currentsection]
-            \end{frame}}
-}
+% TOC at the start of each Section (commented since smooth bars should serve the same functionality)
+\iffalse
+    \setbeamercolor{section number projected}{bg=black,fg=white}
+    \setbeamercolor{subsection number projected}{bg=black,fg=white}
 
+    \setbeamertemplate{section in toc}[square]
+    \setbeamertemplate{subsection in toc}[square]
+    \setbeamercolor{section in toc}{fg=black, bg=white}
+    \setbeamercolor{subsection in toc}{fg=black}
+
+    \AtBeginSection[]{
+        {\setbeamertemplate{footline}{}
+                \begin{frame}[t,noframenumbering]{Roadmap}
+                    \tableofcontents[currentsection]
+                \end{frame}}
+    }
+\fi
 
 % Fix \input with tables
 % \input fails when \\ is at end of external .tex file
