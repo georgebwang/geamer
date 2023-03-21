@@ -1,5 +1,5 @@
 # Geamer
-This is a self-made minimalist LaTeX Beamer theme. Please check out the working example ([PDF](example.pdf)) for the layout features. 
+This is a self-made minimalist LaTeX Beamer theme. Please check out the working example ([PDF](geamer-example.pdf)) for the layout features. 
 
 
 ## Usage
