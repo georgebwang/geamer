@@ -78,10 +78,7 @@
 % \alert   (for showing important phrases)
 \setbeamercolor{alerted text}{fg = sun!77!black}
 
-% Frame title
-\setbeamercolor{frametitle}{fg = monashblue}
-\setbeamercolor{framesubtitle}{fg = monashblue}
-\setbeamerfont{framesubtitle}{size = \small, shape = \itshape}
+
 
 % Blocks
 \setbeamertemplate{blocks}[rounded]
@@ -193,7 +190,8 @@
 \usepackage[euler-digits]{eulervm}
 
 
-
+% format/wrap long cells in table enviro
+\usepackage{makecell}
 
 
 % Remove annoying over-full box warnings
@@ -257,7 +255,7 @@
 \usepackage[font=scriptsize,labelfont=bf]{caption}
 \usepackage[english]{babel}
 \usepackage{csquotes}
-\usepackage[backend=biber,style=apa,doi=false,annotation=false]{biblatex}
+\usepackage[backend=biber,style=apa,doi=false,annotation=false, uniquename=false,uniquelist=false,citetracker=true,maxcitenames=2, natbib=true]{biblatex}
 \usepackage{booktabs}
 \usepackage[normalem]{ulem} % strikethrough text
 \usepackage{appendixnumberbeamer} % reset page number from the start of appendix
@@ -272,8 +270,22 @@
 
 
 
-% script size bibliography
-\AtBeginBibliography{\scriptsize}
+% footnote size bibliography
+\AtBeginBibliography{\footnotesize}
 
 % remove reference icons on the far left
 \setbeamertemplate{bibliography item}{}
+
+
+% Frame title
+
+\setbeamercolor{frametitle}{fg = monashblue}
+\setbeamerfont{frametitle}{size = \large}
+\setbeamercolor{framesubtitle}{fg = monashblue}
+\setbeamerfont{framesubtitle}{size = \small, shape = \itshape}
+\setbeamertemplate{frametitle}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=1.7ex,dp=0ex, center]{frametitle}
+        \insertframetitle%
+    \end{beamercolorbox}%
+}
