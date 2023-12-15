@@ -2,7 +2,7 @@
 % Simple Beamer Template - geamer
 %
 % Author: George Baihan Wang
-% Updated: 2023-12-07
+% Updated: 2023-12-15
 % ============================================================
 
 %% To use the template, simply type \input{geamer.tex} in the preamble within your Beamer tex files. Make sure the <geamer.tex> tmeplate file is in your current tex projects directory or your system 'texmf' folder.
@@ -273,9 +273,17 @@
 \renewcommand{\postnotedelim}{\space}
 
 
+%% bibliography in BibLaTeX
 
 % footnote size bibliography
 \AtBeginBibliography{\footnotesize}
+
+% remove reference icons on the far left
+\setbeamertemplate{bibliography item}{}
+
+% change text color in bibliography
+\setbeamercolor{bibliography entry author}{fg=monashblue}
+\setbeamercolor{bibliography entry note}{fg=black}
 
 % remove reference icons on the far left
 \setbeamertemplate{bibliography item}{}
