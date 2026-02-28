@@ -1,4 +1,4 @@
-\documentclass[aspectratio=149, 10pt]{beamer}
+\documentclass[aspectratio=149, 11pt]{beamer}
 
 \input{geamer.tex} % one-time use, put geamer.tex in the same directory as your main tex file
 
@@ -8,10 +8,12 @@
 
 
 
+\bibliographystyle{plainnat}
+
 \title[footer text]{The Beauty of \LaTeX \ Beamer:}
 \subtitle{Evidence from Template Customisation}
-\author{Author 1 \inst{$^\dagger$} \and Author 2 \inst{$^\ddagger$}}
-\institute{\inst{$^\dagger$} Institution 1 \and \inst{$^\ddagger$} Institution 2}
+\author{Author 1\inst{$^\dagger$} \and Author 2\inst{$^\ddagger$}}
+\institute{\inst{$^\dagger$}Institution 1 \and \inst{$^\ddagger$}Institution 2}
 \date{\today}
 
 \begin{document}
@@ -69,6 +71,22 @@
 
 \end{frame}
 
+\begin{frame}{Citation Examples}
+  Textual citation: \citet{chen2004fund}
+
+  \vspace{2ex}
+
+  Parenthetical citation: \citep{chen2004fund}
+
+  \vspace{2ex}
+
+  With journal abbreviation: \citet[AER]{chen2004fund}
+
+  \vspace{2ex}
+
+  Parenthetical with journal: \citep[AER]{chen2004fund}
+\end{frame}
+
 \begin{frame}{Some Blocks...}
   \begin{block}{A Normal Block}
     This is a block.
@@ -82,5 +100,14 @@
     Another one...
   \end{alertblock}
 \end{frame}
+
+\appendix
+
+{\setbeamertemplate{headline}{}
+\setbeamertemplate{footline}{}
+\begin{frame}[t,allowframebreaks,noframenumbering]{References}
+  \bibliography{geamer-example}
+\end{frame}
+}
 
 \end{document}

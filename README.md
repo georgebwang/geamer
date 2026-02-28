@@ -1,16 +1,71 @@
 # Geamer
-This is a self-made minimalist LaTeX Beamer theme. Please check out the working example ([PDF](geamer-example.pdf)) for the layout features. 
 
+A minimalist LaTeX Beamer theme designed for academic presentations. Clean typography, restrained colour palette, and sensible defaults so you can focus on content. See the [example PDF](geamer-example.pdf) for a preview.
+
+## Design
+
+### Colour Palette
+
+| Role | Colour | RGB |
+|------|--------|-----|
+| Primary | Main Blue | 0, 59, 113 |
+| Secondary | Grey | 142, 144, 144 |
+| Text grey | Dark grey | 60, 60, 60 |
+| Background | Off-white | 248, 249, 251 |
+
+A curated set of accent colours (navy, ruby, coral, cranberry, kelly, etc.) is included for plots and highlights.
+
+### Typography
+
+- **Body text:** Roboto Light — a clean sans-serif that reads well on screen
+- **Math digits:** Euler (via `eulervm`) — elegant numerals that pair well with sans-serif body text
+- **Kerning:** Microtypographic adjustments via `microtype`
+- **Line spacing:** 1.2x for readability
+
+### Layout
+
+- **Background:** Subtle off-white (`248, 249, 251`) rather than pure white, reducing harshness under projector lighting
+- **Frame titles:** Left-aligned, large, in primary blue. Frame subtitles render inline in italics when present
+- **Blocks:** Rounded with backgrounds derived from the primary blue for visual cohesion
+- **Lists:** Square bullets (level 1), circles (level 2), arrows (level 3). Natural item spacing is built in — no manual `\vspace` adjustments needed
+- **Footer:** Right-aligned short title and page number in dark navy, set at `\footnotesize`
+- **Navigation:** Smoothbars section navigation at the top, styled to blend with the background
+- **Margins:** 15pt left and right
+
+### Bibliography
+
+- Author-year citation style via `natbib` with round parentheses (BibTeX backend)
+- Footnote-sized reference list
+- Author names in primary blue, no bibliography icons
+- Appendix page numbering resets via `appendixnumberbeamer`
+
+### Convenience Commands
+
+| Command | Description |
+|---------|-------------|
+| `\mc` | Shorthand for `\multicolumn` |
+| `\red{text}` | Red-coloured text |
+| `\setfsize` | Captures current font size for use with `\thead` in tables |
 
 ## Usage
 
-For a one-time use, simply copy the `geamer.tex` template/preamble file into the directory where your main Beamer `.tex` file is located at. Type `\input{geamer.tex}` in the preamble of your Beamer file to use the theme.
+### Quick Start
 
-To conveniently allow for repetitive usage, copy the `geamer.tex` file into your preferred directory in your operating system, and then include the following commands in the preamble of your main Beamer file:
+Copy `geamer.tex` into your project directory and add to your Beamer preamble:
 
+```latex
+\input{geamer.tex}
 ```
-\usepackage{import} % to import files from other directories
 
-\import{/path/to/geamer/file/}{geamer.tex}
+### Persistent Installation
+
+To reuse across projects without copying, store `geamer.tex` in a fixed location and import it:
+
+```latex
+\usepackage{import}
+\import{/path/to/geamer/}{geamer.tex}
 ```
-For the `\import` command, type the full path of the directory in which your `geamer.tex` file is stored in the first set of braces. For example, if you stored the `geamer.tex` file in `"C:\Users\xxx\Documents\geamer.tex"` then for the `\import` command type the following: `\import{C:/Users/xxx/Documents/}{geamer.tex}`. **Important note to Windows users:** note that one must use *trailing slashes* when defining path in LaTeX files. Windows paths use forward slashes (`\`) by default, and you need to replace those with trailing slashes (`/`) in your path definition to avoid causing compilation errors.  
+
+**Windows users:** use forward slashes (`/`) in paths, not backslashes (`\`). For example: `\import{C:/Users/xxx/Documents/}{geamer.tex}`.
+
+Alternatively, place it in your local `texmf` directory (e.g., `~/texmf/tex/latex/geamer/`) for automatic discovery by your TeX distribution.

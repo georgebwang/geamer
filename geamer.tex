@@ -2,10 +2,10 @@
 % Simple Beamer Template - geamer
 %
 % Author: George Baihan Wang
-% Updated: 2023-12-15
+% Updated: 2026-02-28
 % ============================================================
 
-%% To use the template, simply type \input{geamer.tex} in the preamble within your Beamer tex files. Make sure the <geamer.tex> tmeplate file is in your current tex projects directory or your system 'texmf' folder.
+%% To use the template, simply type \input{geamer.tex} in the preamble within your Beamer tex files. Make sure the <geamer.tex> template file is in your current tex projects directory or your system 'texmf' folder.
 
 
 
@@ -30,15 +30,15 @@
 
 \usepackage{xcolor}
 
-% Monash colour definitions
-% Source: https://www.monash.edu/__data/assets/pdf_file/0004/1656508/9.-Digital-Guidelines.pdf
-\definecolor{monashblue}       {RGB}{0,109,174}
-\definecolor{grey}         {RGB}{60,60,60}
-\definecolor{cornflower} {RGB}{121,162,206}
-\definecolor{pea}        {RGB}{201,212,178}
-\definecolor{beige}	     {RGB}{204,189,143}
-\definecolor{sky}	       {RGB}{221,231,238}
-\definecolor{orange}     {RGB}{245,128,37}
+% Primary and secondary colours
+\definecolor{mainblue}       {RGB}{0,59,113}
+\definecolor{secondarygrey}  {RGB}{142,144,144}
+\definecolor{grey}           {RGB}{60,60,60}
+\definecolor{cornflower}     {RGB}{121,162,206}
+\definecolor{pea}            {RGB}{201,212,178}
+\definecolor{beige}          {RGB}{204,189,143}
+\definecolor{sky}            {RGB}{221,231,238}
+\definecolor{orange}         {RGB}{245,128,37}
 
 % Colour palette from below source:
 % https://www.viget.com/articles/color-contrast/
@@ -67,9 +67,19 @@
 
 %% Beamer layouts
 
+% Global structure colour (inherited by smoothbars, TOC, and unstyled elements)
+\setbeamercolor{structure}{fg=mainblue}
 
-% Background
-\setbeamercolor{background canvas}{bg = white}
+% Smoothbars palette (match background so the navigation bar blends in)
+\setbeamercolor{palette primary}{fg=mainblue, bg=bgwhite}
+\setbeamercolor{palette secondary}{fg=mainblue, bg=bgwhite}
+\setbeamercolor{palette tertiary}{fg=mainblue, bg=bgwhite}
+\setbeamercolor{palette quaternary}{fg=mainblue, bg=bgwhite}
+\setbeamercolor{section in head/foot}{fg=mainblue, bg=bgwhite}
+
+% Background (subtle off-white for modern feel)
+\definecolor{bgwhite}{RGB}{248,249,251}
+\setbeamercolor{background canvas}{bg = bgwhite}
 
 % Change text margins
 \setbeamersize{text margin left = 15pt, text margin right = 15pt}
@@ -79,21 +89,21 @@
 
 
 
-% Blocks
+% Blocks (tied to primary colour for cohesion)
 \setbeamertemplate{blocks}[rounded]
-\setbeamercolor{block title}{fg=monashblue!90!white,bg=sky}
-\setbeamercolor{block title example}{fg=green!50!black, bg=sky}
-\setbeamercolor{block title alerted}{fg=sun!77!black, bg=sky}
-\setbeamercolor{block body}{parent=normal text,bg=sky!50!white}
+\setbeamercolor{block title}{fg=mainblue,bg=mainblue!15!white}
+\setbeamercolor{block title example}{fg=green!50!black, bg=mainblue!12!white}
+\setbeamercolor{block title alerted}{fg=sun!77!black, bg=mainblue!12!white}
+\setbeamercolor{block body}{parent=normal text,bg=mainblue!6!white}
 \setbeamercolor{block body example}{parent=block body}
 \setbeamercolor{block body alerted}{parent=block body}
 
 % Title page
-\setbeamercolor*{title}{fg=monashblue}
-\setbeamercolor*{subtitle}{fg=monashblue}
+\setbeamercolor*{title}{fg=mainblue}
+\setbeamercolor*{subtitle}{fg=mainblue}
 \setbeamerfont*{subtitle}{size = \large}
 \setbeamercolor*{author}{fg=black}
-\setbeamercolor*{date}{fg=gray!70!black}
+\setbeamercolor*{date}{fg=grey}
 \setbeamerfont*{date}{size = \small}
 \setbeamercolor*{institute}{fg=black}
 \setbeamerfont*{institute}{size = \small}
@@ -140,8 +150,8 @@
 }
 
 
-% Button 
-\setbeamercolor{button}{bg = monashblue}
+% Button
+\setbeamercolor{button}{bg=mainblue, fg=white}
 
 % Remove navigation symbols
 \setbeamertemplate{navigation symbols}{}
@@ -154,22 +164,28 @@
 \settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
 \addtolength{\leftmargini}{\labelsep}
 
-% enumerate 
-\setbeamercolor{enumerate item}{fg=monashblue}
-\setbeamercolor{enumerate item}{fg = monashblue}
+% enumerate
+\setbeamercolor{enumerate item}{fg=mainblue}
 \setbeamerfont{enumerate item}{size = \small}
 \setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamercolor{enumerate subitem}{fg = mainblue}
+\setbeamerfont{enumerate subitem}{size = \small}
 
 % itemize
-\setbeamercolor{itemize item}{fg=monashblue}
+\setbeamercolor{itemize item}{fg=mainblue}
 \setbeamerfont{itemize item}{size = \small}
 \setbeamertemplate{itemize item}[square]
-\setbeamercolor{itemize subitem}{fg = monashblue!80!white}
+\setbeamercolor{itemize subitem}{fg = mainblue}
 \setbeamerfont{itemize subitem}{size = \small}
 \setbeamertemplate{itemize subitem}[circle]
-\setbeamercolor{itemize subsubitem}{fg = monashblue!70!white}
+\setbeamercolor{itemize subsubitem}{fg = grey}
 \setbeamerfont{itemize subsubitem}{size = \small}
 \setbeamertemplate{itemize subsubitem}{$\rightarrow$}
+
+% Natural list spacing (removes need for manual \vspace adjustments)
+\setbeamertemplate{itemize/enumerate body begin}{\setlength\itemsep{6pt}\setlength\topsep{4pt}}
+\setbeamertemplate{itemize/enumerate subbody begin}{\setlength\itemsep{4pt}\setlength\topsep{2pt}}
+\setbeamertemplate{itemize/enumerate subsubbody begin}{\setlength\itemsep{3pt}\setlength\topsep{2pt}}
 
 
 % line spacing
@@ -233,8 +249,7 @@
 
 
 % Footer
-\setbeamercolor{footer}{fg=monashblue!80!black, bg=white}
-\setbeamercolor{footerfont}{fg=monashblue!80!black, bg=white}
+\setbeamercolor{footer}{fg=mainblue!70!black, bg=bgwhite}
 
 \defbeamertemplate*{footline}{infolines theme}
 {%
@@ -242,16 +257,12 @@
     \hbox{%
         \begin{beamercolorbox}[wd=\paperwidth,ht=2.2ex,dp=0.7ex,leftskip=2ex,rightskip=2ex,sep=0pt]{footer}%
             \hfill%
-            \usebeamercolor[fg]{footerfont}%
             \usebeamerfont{footerfont}%
-            \insertshorttitle% 
+            \insertshorttitle%
             \hspace*{3ex}%
-            \usebeamercolor[fg]{footerfont}%
-            \usebeamerfont{footerfont}%
-            \usebeamertemplate{footerfont}%
             \insertframenumber\ / \inserttotalframenumber
         \end{beamercolorbox}}%
-    \vskip0pt%
+    \vskip4pt%
 }
 
 
@@ -259,7 +270,7 @@
 \usepackage[font=scriptsize,labelfont=bf]{caption}
 \usepackage[english]{babel}
 \usepackage{csquotes}
-\usepackage[backend=biber,style=apa,doi=false,annotation=false, uniquename=false,uniquelist=false,citetracker=true,maxcitenames=2, natbib=true]{biblatex}
+\usepackage[round]{natbib}
 \usepackage{booktabs}
 \usepackage[normalem]{ulem} % strikethrough text
 \usepackage{appendixnumberbeamer} % reset page number from the start of appendix
@@ -268,36 +279,39 @@
 
 
 
-% citations no comma in between --> make it neater 
-\renewcommand{\nameyeardelim}{\space}
-\renewcommand{\postnotedelim}{\space}
+%% bibliography
 
-
-%% bibliography in BibLaTeX
+% citation formatting: no comma between author-year or before post-note
+% Usage: \citet[MS]{evans2026} --> Evans et al. (2026 MS)
+%        \citep[MS]{evans2026} --> (Evans et al. 2026 MS)
+\setcitestyle{aysep={}}
+\makeatletter
+\renewcommand{\NAT@cmt}{ }
+\makeatother
 
 % footnote size bibliography
-\AtBeginBibliography{\footnotesize}
+\renewcommand{\bibfont}{\footnotesize}
 
 % remove reference icons on the far left
 \setbeamertemplate{bibliography item}{}
 
 % change text color in bibliography
-\setbeamercolor{bibliography entry author}{fg=monashblue}
+\setbeamercolor{bibliography entry author}{fg=mainblue}
 \setbeamercolor{bibliography entry note}{fg=black}
-
-% remove reference icons on the far left
-\setbeamertemplate{bibliography item}{}
 
 
 % Frame title
 
-\setbeamercolor{frametitle}{fg = monashblue}
+\setbeamercolor{frametitle}{fg = mainblue}
 \setbeamerfont{frametitle}{size = \large}
-\setbeamercolor{framesubtitle}{fg = monashblue}
+\setbeamercolor{framesubtitle}{fg = mainblue}
 \setbeamerfont{framesubtitle}{size = \small, shape = \itshape}
 \setbeamertemplate{frametitle}{%
     \nointerlineskip%
-    \begin{beamercolorbox}[wd=\paperwidth,ht=1.7ex,dp=0ex, center]{frametitle}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.2ex,dp=0.5ex,leftskip=15pt]{frametitle}
         \insertframetitle%
+        \ifx\insertframesubtitle\empty\else%
+            \;\;{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}%
+        \fi%
     \end{beamercolorbox}%
 }
